@@ -4,11 +4,14 @@ import "./App.css";
 
 
 function App() {
-  const [state, setState] = useState(Array(9).fill(null)); 
-  const [currrentTurn, setCurrentTurn] = useState("X"); 
+  const [state, setState] = useState(Array(9).fill(null));
+  const [currentTurn, setCurrentTurn] = useState("X");
 
-  const handleBlockClick = (index: number) =>{
-    console.log(index)
+  const handleBlockClick = (index: number) => {
+    const stateCopy = Array.from(state);
+    stateCopy[index] = currentTurn;//index will be given by a click and that index will be set to currentTurn(X or 0)
+    setCurrentTurn(currentTurn === "X" ? "0" : "X"); //Flip the turn 
+    setState(stateCopy)
   }
 
   return (
@@ -19,14 +22,14 @@ function App() {
         <Block onClick={() => handleBlockClick(2)} value={state[2]} />
       </div>
       <div className="row">
-      <Block onClick={() => handleBlockClick(3)} value={state[3]} />
-      <Block onClick={() => handleBlockClick(4)} value={state[4]}/>
-      <Block onClick={() => handleBlockClick(5)} value={state[5]}/>
+        <Block onClick={() => handleBlockClick(3)} value={state[3]} />
+        <Block onClick={() => handleBlockClick(4)} value={state[4]} />
+        <Block onClick={() => handleBlockClick(5)} value={state[5]} />
       </div>
       <div className="row">
-      <Block onClick={() => handleBlockClick(6)} value={state[6]}/>
-      <Block onClick={() => handleBlockClick(7)} value={state[7]}/>
-      <Block onClick={() => handleBlockClick(8)} value={state[8]}/>
+        <Block onClick={() => handleBlockClick(6)} value={state[6]} />
+        <Block onClick={() => handleBlockClick(7)} value={state[7]} />
+        <Block onClick={() => handleBlockClick(8)} value={state[8]} />
       </div>
 
     </div>
