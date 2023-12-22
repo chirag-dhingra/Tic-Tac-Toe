@@ -5,22 +5,28 @@ import "./App.css";
 
 function App() {
   const [state, setState] = useState(Array(9).fill(null)); 
+  const [currrentTurn, setCurrentTurn] = useState("X"); 
+
+  const handleBlockClick = (index: number) =>{
+    console.log(index)
+  }
+
   return (
     <div className="board">
       <div className="row">
-        <Block value={state[0]} />
-        <Block value={state[1]} />
-        <Block value={state[2]} />
+        <Block onClick={() => handleBlockClick(0)} value={state[0]} />
+        <Block onClick={() => handleBlockClick(1)} value={state[1]} />
+        <Block onClick={() => handleBlockClick(2)} value={state[2]} />
       </div>
       <div className="row">
-      <Block value={state[3]} />
-      <Block value={state[4]}/>
-      <Block value={state[5]}/>
+      <Block onClick={() => handleBlockClick(3)} value={state[3]} />
+      <Block onClick={() => handleBlockClick(4)} value={state[4]}/>
+      <Block onClick={() => handleBlockClick(5)} value={state[5]}/>
       </div>
       <div className="row">
-      <Block value={state[6]}/>
-      <Block value={state[7]}/>
-      <Block value={state[8]}/>
+      <Block onClick={() => handleBlockClick(6)} value={state[6]}/>
+      <Block onClick={() => handleBlockClick(7)} value={state[7]}/>
+      <Block onClick={() => handleBlockClick(8)} value={state[8]}/>
       </div>
 
     </div>

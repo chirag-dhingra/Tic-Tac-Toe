@@ -2,12 +2,13 @@ import React from 'react'
 
 interface BlockProps{
     value : string;
+    onClick?:() => void
 }
 const Block: React.FC<BlockProps> = (props) =>{
     return(
-        <div className="block">
+        <div onClick={props.onClick} className="block">
          {props.value}
         </div>
-    )
+    ) 
 }
 export default Block
