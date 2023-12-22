@@ -1,39 +1,31 @@
-import './App.css';
-import {useState} from 'react'
+import React, { useState } from 'react';
+import Block from './components/Block';
+import "./App.css";
 
-function Square() {
-  const [value, setValue] = useState<String>("-");
 
-  function handleClick() {
-    setValue('X')
-  }
+function App() {
+  const [state, setState] = useState(Array(9).fill(null)); 
   return (
-  <button
-    className="square"
-    onClick={handleClick}
-  >
-    {value}
-  </button>)
+    <div className="board">
+      <div className="row">
+        <Block value="X" />
+        <Block value="X" />
+        <Block value="X" />
+      </div>
+      <div className="row">
+      <Block value="X" />
+      <Block value="X" />
+      <Block value="X" />
+      </div>
+      <div className="row">
+      <Block value="X" />
+      <Block value="X" />
+      <Block value="X" />
+      </div>
+
+    </div>
+
+  );
 }
 
-export default function Board() {
-  return (<>
-    <div className="board-row">
-      <Square/>
-      <Square/>
-      <Square/>
-    </div>
-    <div className="board-row">
-      <Square/>
-      <Square/>
-      <Square/>
-    </div>
-    <div className="board-row">
-      <Square/>
-      <Square/>
-      <Square/>
-    </div>
-  </>);
-}
-
-
+export default App
